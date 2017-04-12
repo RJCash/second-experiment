@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:https="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="styleSheet" type="text/css" th:href="@{/stylin.css}"/>
+    <h1 class="title">Gif!</h1>
+    <nav>
+        <a th:href="@{/home.html}">Back to Homepage</a>
+    </nav>
+</head>
+<body class="body">
+<div class="container">
+    <img th:src="@{/giphy.gif}" alt="wat happened?"/>
+</div>
+</body>
+</html>
