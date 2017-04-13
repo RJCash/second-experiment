@@ -5,8 +5,8 @@
     <meta charset="UTF-8"/>
     <title>Home Page</title>
     <h1 class="title">Webpage</h1>
-
-    <link rel="styleSheet" type="text/css" th:href="@{/stylin.css}"/>
+    <link rel="styleSheet" type="text/css" th:href="@{/stylin.css}"
+          href="../static/stylin.css"/>
     <p th:text="${'Your lucky number: '+random}">coding</p>
     <p th:text="${'Date now is '+date}">is </p>
     <p th:text="${'Time now is '+time}">fun</p>
