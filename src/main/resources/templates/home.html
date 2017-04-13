@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:https="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:https="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8"/>
     <title>Home Page</title>
@@ -15,6 +16,13 @@
     </nav>
 </head>
 <body class="body">
-    <img class="img1" th:src="@{/computer.jpg}"/>
+<br></br>
+    <form class="animalForm" th:action="@{/AnimalList.html}">
+      <label>Show list of animals -></label>
+        <button>
+            Enter
+        </button>
+    </form>
+     <img class="img1" th:src="@{/computer.jpg}"/>
 </body>
 </html>

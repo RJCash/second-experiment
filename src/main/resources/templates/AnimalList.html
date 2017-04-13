@@ -1,0 +1,19 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="styleSheet" type="text/css" th:href="@{/stylin.css}"/>
+    <title>Animals</title>
+    <nav>
+        <a th:href="@{/home.html}">Back to Homepage</a>
+    </nav>
+</head>
+<body class ="body">
+<h1>Current List of Animals</h1>
+<div th:each="animal:${animals}">
+   <br></br>
+        <li th:text="${animal.name}">animal is here</li>
+    <br></br>
+</div>
+</body>
+</html>
