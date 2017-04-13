@@ -17,7 +17,7 @@ public class RickController {
     @Autowired
     AnimalRepository repo;
 
-    @RequestMapping("/home.html")
+    @RequestMapping("/")
     public String showtemp(Model model){
         model.addAttribute("random", Math.random());
         model.addAttribute("date", LocalDate.now());
