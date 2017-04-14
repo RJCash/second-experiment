@@ -1,29 +1,39 @@
 package com.theironyard;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-
-import java.util.Arrays;
 import java.util.List;
-
 /**
  * Created by rickiecashwell on 4/12/17.
  */
 @Component
 public class AnimalRepository {
-    private List<Animal> animals= Arrays.asList(
-           new Animal(1,"Bob","dog", "Husky","odd dog" ),
-           new Animal(2, "Sally", "dog", "Labrador","another dog"),
-            new Animal(3, "Dave", "dog", "Husky","yet another dog"));
+    @Autowired
+    JdbcTemplate template;
 
-    public Animal findAnimalByName(String name){
-        for(int i =0; i <= animals.size();i++){
-            if(animals.get(i).getName().equals(name)){
-                return animals.get(i);
-            }
-        }
-    return null;
+    public List<Animal> animals() {
+        return template.query("SELECT * FROM animals",
+                new Object[]{},
+                (ResultSet, row) -> new Animal(
+                        ResultSet.getInt("animalid"),
+                        ResultSet.getString("animal_name"),
+                        ResultSet.getString("animal_breed"),
+                        ResultSet.getString("animal_species"),
+                        ResultSet.getString("animal_description")
+                )
+        );
     }
-    public List<Animal> getAnimals() {
-        return animals;
+
+    public Object listAnimalName(String name) {
+        return template.query("SELECT * FROM animals WHERE lower(animal_name) = lower(?)",
+                new Object[]{name},
+                (ResultSet, row) -> new Animal(
+                        ResultSet.getInt("animalid"),
+                        ResultSet.getString("animal_name"),
+                        ResultSet.getString("animal_breed"),
+                        ResultSet.getString("animal_species"),
+                        ResultSet.getString("animal_description")
+                )
+        );
     }
 }

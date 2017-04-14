@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Home Page</title>
-    <h1 class="title">Webpage</h1>
+    <h1 class="title">Home Page</h1>
     <link rel="styleSheet" type="text/css" th:href="@{/stylin.css}"
           href="../static/stylin.css"/>
     <p th:text="${'Your lucky number: '+random}">coding</p>
@@ -14,15 +14,13 @@
     <nav>
         <a th:href="@{/showgif.html}">GIF!</a>
     </nav>
+    <br></br>
+    <nav>
+        <a th:href="@{/AnimalList.html}">Animal Page</a>
+    </nav>
 </head>
 <body class="body">
 <br></br>
-    <form class="animalForm" th:action="@{/AnimalList.html}">
-      <label>Show list of animals -></label>
-        <button>
-            Enter
-        </button>
-    </form>
-     <img class="img1" th:src="@{/computer.jpg}"/>
+<img class="img1" th:src="@{/donkey.jpg}"/>
 </body>
 </html>

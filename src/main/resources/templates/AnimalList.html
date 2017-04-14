@@ -7,13 +7,56 @@
     <nav>
         <a th:href="@{/}">Back to Homepage</a>
     </nav>
-</head>
+    <h1>Current List of Animals</h1>
+    <form action="index.html" th:action="@{/AnimalList}" method="get">
+        <label>
+            <span>Search:</span>
+            <input type="text" name="name" th:value="${name}" />
+        </label>
+        <button>Search</button>
+    </form>
+        <p>Showing <span th:text="${size}">4</span> animals.</p>
+    <table>
+        <tr>
+            <th>
+                <a href="index.html" title="Sort by name">Name</a>
+            </th>
+            <th>
+                <a href="index.html" title="Sort by species">Species</a>
+            </th>
+            <th>
+                <a href="index.html" title="Sort by breed">Breed</a>
+            </th>
+            <th>
+                <a href="index.html" title="Sort by description">Description</a>
+            </th>
+            <th>
+                <a href="index.html" title="Sort by ID">ID</a>
+            </th>
+        </tr>
+        <tr th:each="animal: ${animals}">
+            <td th:text="${animal.getName()}">Harper</td>
+            <td th:text="${animal.getBreed()}">Cosmo</td>
+            <td th:text="${animal.getSpecies()}">Cosmo</td>
+            <td th:text="${animal.getDescription()}">Cosmo</td>
+            <td th:text="${animal.getID()}">Cosmo</td>
+            <td><a th:href="@{/AnimalForm?animalid + ${animalid}}">Edit</a></td>
+        </tr>
+        <tr th:remove="all">
+            <td>Rusty</td>
+            <td>Dusty</td>
+            <td><a href="/">Edit</a></td>
+        </tr>
+        <tr th:remove="all">
+            <td >Faze</td>
+            <td>Blaze</td>
+            <td><a href="/">Edit</a></td>
+        </tr>
+    </table>
+
+        </head>
 <body class ="body">
-<h1>Current List of Animals</h1>
-<div th:each="animal:${animals}">
-   <br></br>
-        <li th:text="${animal.name}">animal is here</li>
-    <br></br>
-</div>
+
+
 </body>
 </html>
